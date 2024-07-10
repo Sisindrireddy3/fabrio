@@ -6,7 +6,7 @@
 body{
     height: 3000px;
     width: 100%;
-    background-color: bisque;
+    /* background-color: bisque; */
 }
 .shop1{
     height: 200px;
@@ -19,22 +19,246 @@ body{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 100px;
 }
-.shop2{
-    height: 600px;
-    width: 100%;
-    background-image: url(images/shop1.jpg);
-    background-size: cover;
-}
 .shop3{
     margin-top: 120px;
-}
-.shop4{
     height: 700px;
     width: 600px;
-    background-color: aquamarine;
+    background-color: rgb(245, 242, 242);
+}
+.shop4{
+    /* height: 700px;
+    width: 600px;
+    background-color: aquamarine; */
 }
 .shop4 h1{
-    font-family:  'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 60px;
+    padding-top: 100px;
+    font-size: 65px;  
+}
+.shop4 p{
+    margin-left: 60px;
+    margin-top: 30px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.p1{
+    margin-top: 30px;
+    margin-left: 60px;
+    display: flex;
+    column-gap: 20px;
+}
+.p12 p{
+    font-size: 20px;
+}
+.p2{
+    margin-top: 30px;
+    margin-left: 60px;
+    display: flex;
+    column-gap: 20px;
+}
+.p22 p{
+    font-size: 20px;
+}
+.p3{
+    margin-top: 30px;
+    margin-left: 60px;
+    display: flex;
+    column-gap: 20px;
+}
+.p32 p{
+    font-size: 20px;
+}
+.sunny h1{
+    margin-top: 30px;
+    margin-left: 60px;
+}
+.sunny2{
+    margin-top: 30px;
+    margin-left: 60px;
+    font-size: 30px;
+}
+.leo2{
+    height: 700px;
+    width: 600px;
+ 
+    margin-top: 120px;
+
+}
+.leo2 span{
+    height: 600px;
+}
+.leo{
+    width: 100%;
+    display: flex;
+}
+
+.C{
+    height: 200px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    /* margin-top: 50px; */
+    display: flex;
+    column-gap: 250px;
+}
+.C h1{
+    padding-top: 70px;
+    padding-left: 20px;
+    font-size: 60px;
+}
+.C input{
+    height: 50px;
+    width: 600px;
+    margin-top: 80px;
+}
+.D{
+    margin-top: 100px;
+    display: flex;
+    column-gap: 250px;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    margin-left: 40px;
+}
+.D2{
+    padding-top: 100px;
+}
+.babai{
+    height: 800px;
+    width: 100%;
+    background-color: rgb(245, 242, 242);
+}
+.babai1 h1{
+    padding-top: 150px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 65px;
+}
+.babai2{
+    margin-left: 20px;
+}
+.babai4{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+.babai2 label{
+    font-family: sans-serif;
+    font-size: 20px;
+}
+.babai2 input{
+    height: 50px;
+    width: 600px;
+}
+.babai3{
+    margin-left: 700px;
+    margin-top: -72px;
+}
+.babai3 label{
+    font-family: sans-serif;
+    font-size: 20px;
+}
+.babai3 input{
+    height: 50px;
+    width: 550px;
+}
+.babai4 label{
+    font-family: sans-serif;
+    font-size: 20px;
+}
+.babai4 input{
+    height: 150px;
+    width: 1200px;
+}
+.babai button{
+    margin-top: 150px;
+    margin-left: 550px;
+    height: 70px;
+    width: 200px;
+}
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.logo {
+    margin-left: 150px;
+}
+.logo h1{
+    font-size: 35px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+nav {
+    background-color: aliceblue;
+    display: flex;
+    align-items: center; 
+    padding: 10px 20px; 
+}
+
+nav ul {
+    margin-left: 20px;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px; 
+    position: relative; 
+}
+
+nav ul li a {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px; 
+    display: block;
     
 }
 
+nav ul li:hover ul {
+    display: block; 
+}
+
+
+nav ul li ul {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+nav ul li ul li {
+    width: 180px; 
+}
+
+nav ul li ul li a {
+    font-size: 16px; 
+    padding: 10px 15px; 
+    display: block; 
+    white-space: nowrap;
+}
+a:active,a:hover{
+    text-decoration: underline; 
+    text-decoration-thickness:1px ;
+}
+
+.end {
+    margin-left: auto;
+}
+
+.end ul {
+    display: flex;
+    align-items: center; 
+}
+
+.end ul li {
+    margin-left: 20px;
+}
