@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
 
@@ -18,7 +20,7 @@
     <nav>
         <ul>
             <li><a href="#" target="_blank">HOME</a></li>
-            <li><a href="#" target="_blank">PAGE  </a>
+            <li><a href="#" target="_blank">PAGE<ion-icon name="caret-down-outline"></ion-icon></a>
             <ul>
                 <li><a href="" target="_blank">ABOUT US</a></li>
                 <li><a href="" target="_blank">SHOP DETAILS</a></li>
@@ -26,13 +28,13 @@
                 <li><a href="" target="_blank">BLOG</a></li>
                 <li><a href="" target="_blank">BLOG CATEGORY</a></li>
                 <li><a href="" target="_blank">BLOG SINGLE</a></li>
-                <li><a href="" target="_blank">404</a></li>
+                <li><a href="404.html" target="_blank">404</a></li>
             </ul>
             </li>
             <li><a href="#" target="_blank">SHOP</a></li>
-            <li><a href="#" target="_blank">CONTACT</a></li>
+            <li><a href="#" target="_blank" class="cart">CONTACT</a></li>
         </ul>
-        <div class="logo"><h1>Fabrio</h1></div>
+        <div class="logo"><p>FABRIO</p></div>
         <div class="end">
             <ul>
             <li><a href="#" target="_blank">ACCOUNT</a></li>
@@ -40,6 +42,15 @@
             </ul>
         </div>
     </nav>
+
+    <div class="popup">
+        <div class="p">
+        <p>Your Cart</p>
+        <button id="close" class="btn">x</button>
+        </div>
+        <hr style="border:1px solid black">
+        <p class="pop-para">No items added </p>
+    </div>
 
 
 
@@ -106,27 +117,28 @@
     
         </div>
     </div>
-
     <div class="babai">
         <div class="babai1">
             <h1>CONTACT FORM</h1>
         </div>
-        <div class="babai2">
-        <label for="text">NAME</label> <br>
-        <input type="text">
+        <form id="contactForm" action="/submit-your-form-handler" method="post">
+            <div class="babai2">
+                <label for="name">NAME</label> <br>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="babai3">
+                <label for="email">EMAIL ADDRESS</label> <br>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="babai4">
+                <label for="message">YOUR MESSAGE</label> <br>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit">SUBMIT NOW</button>
+        </form>
+        <p id="confirmationMessage" style="display: none;">Thank you! Your submission has been received.</p>
     </div>
-    <div class="babai3">
-        <label for="text">EMAIL ADDRESS</label> <br>
-        <input type="text">
-    </div>
-    <div class="babai4">
-        <label for="text">YOUR MESSAGE</label> <br>
-        <input type="text">
-    </div>
-
-    <button>SUBMIT NOW</button>
-    </div>
-
+    
     <div class="C">
         <h1>NEWSLATTER</h1>
         <input type="text" placeholder="Enter Email Here" >
@@ -153,6 +165,86 @@
             <p>TWITTER</p><br>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const confirmationMessage = document.getElementById('confirmationMessage');
+    
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+    
+                if (validateForm()) {
+                    // Simulate submission delay (remove this in production)
+                    setTimeout(function() {
+                        form.reset();
+                        confirmationMessage.style.display = 'block';
+                    }, 1000); // Adjust the delay time as needed
+                }
+            });
+    
+            function validateForm() {
+                let isValid = true;
+    
+                const name = document.getElementById('name');
+                if (!name.value.trim()) {
+                    isValid = false;
+                    setErrorFor(name, 'Name cannot be blank');
+                } else {
+                    setSuccessFor(name);
+                }
+    
+                const email = document.getElementById('email');
+                if (!validateEmail(email.value)) {
+                    isValid = false;
+                    setErrorFor(email, 'Email is not valid');
+                } else {
+                    setSuccessFor(email);
+                }
+    
+                const message = document.getElementById('message');
+                if (!message.value.trim()) {
+                    isValid = false;
+                    setErrorFor(message, 'Message cannot be blank');
+                } else {
+                    setSuccessFor(message);
+                }
+    
+                return isValid;
+            }
+    
+            function setErrorFor(input, message) {
+                const formControl = input.parentElement;
+                const small = formControl.querySelector('small');
+                if (small) {
+                    small.innerText = message;
+                } else {
+                    const small = document.createElement('small');
+                    small.innerText = message;
+                    formControl.appendChild(small);
+                }
+                formControl.className = 'error';
+            }
+    
+            function setSuccessFor(input) {
+                const formControl = input.parentElement;
+                formControl.className = '';
+            }
+    
+            function validateEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+            }
+        });
+        document.querySelector("#close").addEventListener("click",function(){
         
+        document.querySelector(".popup").style.display = "none";
+    });
+
+    document.querySelector(".cart").addEventListener("click",function(){
+        
+        document.querySelector(".popup").style.display = "block";
+    });
+    </script>
+    
 </body>
 </html>
